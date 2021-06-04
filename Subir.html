@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="HTML_BOOTSTRAP_TEMPLATE/style-login.css">
+    <link rel="stylesheet" href="HTML_BOOTSTRAP_TEMPLATE/style.css">
+    <script src="js/Jquery-3.5.6.slim.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <title>Registro</title>
+    <ul>
+        <a href="Main.html">inicio</a><!-- FALTA AGREGAR LOS HIPERVINCULOS Y DISEÑO -->
+    </ul>
+    <script type="text/javascript">
+        
+        $(document).ready(function () {
+            $("#error").hide();
+            $("#formulario").submit(function () {
+                var mensaje = "";
+
+                if ($("#nombre").val().trim().length == 0) {
+                    mensaje = "El Nombre esta en blanco";
+                }
+                if ($("#email").val().trim().length == 0) {
+                    mensaje = "El Email esta en blanco";
+                }
+                
+                if (mensaje != "") {
+                    $("#error").html(mensaje);
+                    $("#error").show();
+                    event.preventDefault();
+                }
+                
+            });
+
+
+        })
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card-header">Registro</div>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post" action="procesar.php" id="formulario">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo: </label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electronico: </label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtIdentifi">Seleccione como desea verificarse si con Rut o Pasaporte:</label>
+                        <div class="form-group">
+                            <label class="radio-container m-r-45">rut
+                                <input type="radio" checked="checked" name="Identifi">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio-container m-r-45">Pasaporte
+                                <input type="radio" name="Identifi">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="rut">rut</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"></span>
+                            <input type="text" class="form-control" id="rut" name="rut">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNum">Ingrese su Numero Contacto (opcional):</label>
+                        <input type="text" name="txtNum" id="txtNum" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <div class="name">Mensaje</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <textarea class="textarea--style-6" name="mensaje" id="mensaje" cols="80" rows="10" placeholder="Porfavor escriba su mensaje para la ONG o su comentario sobre ella."></textarea>
+                            </div>
+                        </div>
+            </div>
+
+            <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
+            <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+            <div id="error" class="alert alert-danger" role="alert"></div>
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
