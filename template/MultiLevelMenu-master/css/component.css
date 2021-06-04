@@ -117,6 +117,14 @@
 	color: #5c5edc;
 }
 
+.menu-mobile {
+	display: none;
+	font-size: 20px;
+	padding: 10px;
+	margin: 20px auto 30px auto;
+	width: 90%;
+}
+
 [class^='animate-'],
 [class*=' animate-'] {
 	visibility: visible;
